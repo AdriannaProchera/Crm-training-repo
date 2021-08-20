@@ -37,8 +37,8 @@ class CompanyTest {
         saveAndFlush(company);
         //then
         final var readCompany = session.get(Company.class, company.getId());
-        //assertEquals(company, readCompany);
-        assertEquals(company.getAddresses(), readCompany.getAddresses());
+        assertEquals(company, readCompany);
+        //assertEquals(company.getAddresses(), readCompany.getAddresses());
     }
 
 

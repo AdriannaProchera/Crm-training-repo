@@ -9,6 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.sda.crm.util.HibernateUtil;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
@@ -70,6 +72,35 @@ class PersonTest {
         //then
         final var readCustomer = session.get(Customer.class, customer.getId());
         assertEquals(customer.getAddresses(), readCustomer.getAddresses());
+    }
+
+    @Test
+    void shouldAddPremiumStatus(){
+        //given
+        final var customer = new Person("Jan", "Kowalski", new Pesel("12345678910"));
+        PremiumStatus status = new PremiumStatus(LocalDate.of(2021,10,10), TypePremiumStatus.GOLD);
+        customer.addPremiumStatus(new PremiumStatus(LocalDate.of(2021,10,10), TypePremiumStatus.GOLD));
+
+        //when
+        saveAndFlush(customer);
+
+        //then
+        final var readCustomer = session.get(Customer.class, customer.getId());
+        assertEquals(status, readCustomer.getPremiumStatus());
+    }
+
+    @Test
+    void shouldupdatePremiumStatus(){
+        //given
+        final var customer = new Person("Jan", "Kowalski", new Pesel("12345678910"));
+        final var customer2 = new Person("Anna", "Nowak", new Pesel("98765432110"));
+        customer2.addPremiumStatus(new PremiumStatus(LocalDate.now().plusMonths(6), TypePremiumStatus.GOLD));
+        //when
+        customer.updatePremiumStatus(TypePremiumStatus.GOLD);
+        saveAndFlush(customer);
+        saveAndFlush(customer2);
+        //then
+        assertEquals(customer2.getPremiumStatus(), customer.getPremiumStatus());
     }
 
     private void saveAndFlush(Person person) {

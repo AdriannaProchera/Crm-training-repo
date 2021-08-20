@@ -28,7 +28,7 @@ public class CompanyCustomerRegistration {
         return new RegisteredCustomerId(company.getId());
     }
     private Boolean companyExists(RegisterCompanyForm form, Session session) {
-        return session.createQuery("select count(p) > 0 from Company p where p.name = ?1 and p.numberNip = ?2", Boolean.class)
+        return session.createQuery("select count(p) > 0 from Company p where p.name = ?1 or p.numberNip = ?2", Boolean.class)
                 .setParameter(1, form.getName())
                 .setParameter(2, form.getNumberNip())
                 .getSingleResult();

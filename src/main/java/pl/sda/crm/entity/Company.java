@@ -19,7 +19,7 @@ public class Company extends Customer {
     }
 
     public Company(String name, String numberNip) {
-        validate(name != null || !name.isBlank(), "name is invalid" + name);
+        validate(name != null && !name.isBlank(), "name is invalid" + name);
         validate(numberNip != null && numberNip.matches("\\d{13}"), "nip is invalid: " + numberNip);
         this.name = name;
         this.numberNip = numberNip;

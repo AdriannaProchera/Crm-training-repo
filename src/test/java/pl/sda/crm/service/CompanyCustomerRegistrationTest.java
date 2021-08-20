@@ -25,7 +25,7 @@ public class CompanyCustomerRegistrationTest {
     @Test
     void shouldNotRegisterCompanyIfNameAndNumberNipAlreadyExists(){
         //given
-        final var form = new RegisterCompanyForm("Gwiazdy", "9876543211234");
+        final var form = new RegisterCompanyForm("Gwiazdy1", "9876543211234");
         registration.registerCustomer(form);
         //when & then
         assertThrows(CustomerAlreadyExistsException.class, () -> registration.registerCustomer(form));
