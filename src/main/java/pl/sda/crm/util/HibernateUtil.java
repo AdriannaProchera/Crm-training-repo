@@ -2,9 +2,7 @@ package pl.sda.crm.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import pl.sda.crm.entity.Address;
-import pl.sda.crm.entity.Customer;
-import pl.sda.crm.entity.Person;
+import pl.sda.crm.entity.*;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -43,8 +41,10 @@ public class HibernateUtil {
     private static void configureEntities(Configuration configuration){
         configuration.addAnnotatedClass(Customer.class);
         configuration.addAnnotatedClass(Person.class);
+        configuration.addAnnotatedClass(Company.class);
         configuration.addAnnotatedClass(Address.class);
-    }
+        configuration.addAnnotatedClass(PremiumStatus.class);
+        }
 
     private static Properties loadHibernateProperties() throws IOException {
         final var properties = new Properties();//typ jest inferowany przez kompilator

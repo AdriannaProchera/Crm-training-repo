@@ -1,5 +1,9 @@
 package pl.sda.crm.service;
 
+import java.util.Objects;
+
+import static java.util.Objects.requireNonNull;
+
 public class RegisterCompanyForm {
     private final String name;
     private final String numberNip;

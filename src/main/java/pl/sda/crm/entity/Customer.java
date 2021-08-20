@@ -28,6 +28,10 @@ public abstract class Customer {
         return id;
     }
 
+    public PremiumStatus getPremiumStatus(){
+        return premiumStatus;
+    }
+
     public void addAddresses(Address address){
         if(!this.addresses.contains(address)){
             this.addresses.add(address);
