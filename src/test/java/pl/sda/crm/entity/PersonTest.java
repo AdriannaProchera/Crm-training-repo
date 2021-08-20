@@ -38,8 +38,6 @@ class PersonTest {
 
         //when proba zapisania do baz danych
         saveAndFlush(person);
-
-
         //session.save(person);//dodanie encji do cache - do bazy danych
         //zapis przez sesje , zapisuje do cache i trakuje go -> save oznacza zeby dodac obiekt do sesji hibernate
         //save ma w srodku Map<ID,ENTITY> = person.id, person(po identyfikztorze encji zapisana)

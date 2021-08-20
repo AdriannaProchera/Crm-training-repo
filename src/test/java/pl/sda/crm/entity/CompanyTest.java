@@ -7,7 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.sda.crm.util.HibernateUtil;
-import  pl.sda.crm.entity.Company;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 

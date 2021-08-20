@@ -25,7 +25,7 @@ public class PersonCustomerRegistration {
         //HQL - hibernate query language
         //zwracanie boolean
         if(personExists(form, session)){
-            throw new CustomerAlreadyExistsException("customer exists, chech data" + form);
+            throw new CustomerAlreadyExistsException("customer exists, check data" + form);
         }
 
         //2. zamiana form w encje Person
