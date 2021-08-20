@@ -42,25 +42,16 @@ public class Person extends Customer{
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public Pesel getPesel() {
         return pesel;
     }
 
-    public void setPesel(Pesel pesel) {
-        this.pesel = pesel;
-    }
 
     @Override
     public boolean equals(Object o) {
